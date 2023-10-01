@@ -20,22 +20,6 @@ function App() {
     activityStore.loadActivities();
   }, [activityStore])
 
-function handleSelectActivity(id:string){
-  setselectedActivity(activities.find(x => x.id === id))
-}
-
-function handleCancelSelectActivity(){
-  setselectedActivity(undefined);
-}
-
-function handleFormOpen(id?: string) {
-  id ? handleSelectActivity(id) : handleCancelSelectActivity();
-  setEditMode(true);
-}
-
-function handleFormClose() {
-  setEditMode(false);
-}
 
 function handleCreateOrEditActivity(activity: Activity){
   setSubmitting(true);
@@ -68,16 +52,10 @@ if (activityStore.loadingInitial) {
 
   return (
     <>
-      <NavBar openForm={handleFormOpen}/>
+      <NavBar/>
       <Container style={{marginTop: '7em'}}>
         <ActivityDashboard 
           activities={activityStore.activities}
-          selectedActivity={selectedActivity}
-          selectActivity={handleSelectActivity}
-          cancelSeletecActivity={handleCancelSelectActivity}
-          editMode={editMode}
-          openForm={handleFormOpen}
-          closeForm={handleFormClose}
           createOrEdit={handleCreateOrEditActivity}
           deleteActivity={handleDeleteActivity}
           submitting={submitting}/>
