@@ -30,7 +30,7 @@ export default observer(function ActivityForm() {
     },[id, loadActivity])
 
     if (loadingInitial) {
-        return <LoadingComponent content="Loading activity..."></LoadingComponent>
+        return <LoadingComponent content="Loading activity..." inverted={true} ></LoadingComponent>
     }
 
     function handleSubmit() {
