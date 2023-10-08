@@ -28,6 +28,7 @@ body {
           rgb(32, 167, 172) 89%
   ) !important;
   height: 100vh;
+  width: 100%;
 }
 
 .masthead .ui.menu .ui.button,
