@@ -1,4 +1,5 @@
 using Application.Core;
+using AutoMapper;
 using Domain;
 using MediatR;
 using Persistence;
@@ -15,8 +16,10 @@ namespace Application.Activities
         public class Handler : IRequestHandler<Query, Result<Activity>>
         {
             private readonly DataContext _context;
-            public Handler(DataContext context)
+            private readonly IMapper _mapper;
+            public Handler(DataContext context, IMapper mapper)
             {
+                _mapper = mapper;
                 _context = context;
             }
             public async Task<Result<Activity>> Handle(Query request, CancellationToken cancellationToken)
