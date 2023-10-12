@@ -12,7 +12,7 @@ export default observer(function LoginForm() {
             initialValues={{email:'', password: '', error: null}}
             onSubmit={
                     (values, {setErrors}) => userStore.login(values).
-                                                catch(error => setErrors({error: "Invalid email or password"}))} >
+                                                catch(_error => setErrors({error: "Invalid email or password"}))} >
             {({handleSubmit, isSubmitting, errors}) => (
                 <Form className="ui form" onSubmit={handleSubmit} autoComplete="off" >
                     <Header as='h2' content="Login to Reactivities" color='teal' />

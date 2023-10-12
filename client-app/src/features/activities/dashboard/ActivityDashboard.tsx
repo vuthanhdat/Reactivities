@@ -20,7 +20,6 @@ export default observer(function ActivityDashboard() {
       if (activityStore.loadingInitial) {
         return <LoadingComponent content='Loading app' inverted={true}></LoadingComponent>
       }
-
         return (
             <Grid fluid={"true"}>
                 <Grid.Column width={'10'}>

@@ -22,7 +22,7 @@ function App() {
   }, [commonStore, userStore])
 
   if (!commonStore.appLoaded) return <LoadingComponent content='Loading app...' inverted={false} />
-
+  
   return (
     <>
       <ModalContainer/>
