@@ -80,7 +80,7 @@ namespace API.Controllers
             return CreateUserObject(user);
         }
 
-       private UserDto CreateUserObject(AppUser user)
+        private UserDto CreateUserObject(AppUser user)
         {
             return new UserDto
             {
