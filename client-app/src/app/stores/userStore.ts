@@ -15,6 +15,13 @@ export default class UserStore {
         return !!this.user;
     }
 
+    /* 
+        when user login in webapp:
+        1) call login api
+        2) receive a token, and save token in storage, and set current user
+        3) redirect to list page
+        4) close modal
+    */
     login = async (creds:UserFormValuse) => {
         try {
             const user = await agent.Account.login(creds);
@@ -27,6 +34,11 @@ export default class UserStore {
         }
     }
 
+    /** 
+     * 1) register by call api
+     * 2) set token
+     * 3) redirect
+     */
     register = async (creds:UserFormValuse) => {
         try {
             const user = await agent.Account.register(creds);

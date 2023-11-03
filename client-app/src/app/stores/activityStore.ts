@@ -30,6 +30,11 @@ export default class ActivityStore {
         )
     }
 
+    /**
+     * when user is authenticated and redirect to reactivities page, it is call api to get list activities
+     * after that, based on who is login to set up data for specific display(host, date ...)
+     * then stop loading
+     */
     loadActivities = async() => {
         this.setLoadingInitial(true);
         try {
@@ -45,7 +50,15 @@ export default class ActivityStore {
         }
     }
 
-    loadActivity =async (id:string) => {
+    /**
+     * 
+     * @param id 
+     * @returns a activity 
+     * is called when click to view details activity. 
+     * firstly, check if exist in current data then set as seleted activity
+     * if not exist then call api to get activity
+     */
+    loadActivity = async (id:string) => {
         let activity = this.getActivity(id);
         if (activity) {
             this.selectedActivity = activity;
@@ -174,5 +187,16 @@ export default class ActivityStore {
         } finally {
             runInAction(() => this.loading = false);
         }
+    }
+
+    updateAttendeeFollowing = (username: string) => {
+        this.activityRegistry.forEach(activity => {
+            activity.attendees?.forEach(attendee => {
+                if (attendee.username === username) {
+                    attendee.following ? attendee.followersCount--: attendee.followersCount++;
+                    attendee.following = !attendee.following;
+                }
+            })
+        })
     }
 }
