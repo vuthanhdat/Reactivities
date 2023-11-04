@@ -1,4 +1,4 @@
-import { makeAutoObservable, runInAction } from "mobx";
+import { makeAutoObservable } from "mobx";
 import { User, UserFormValuse } from "../models/user";
 import agent from "../api/agent";
 import { store } from "./store";

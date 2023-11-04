@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useStore } from "../../../app/stores/store";
 import { observer } from "mobx-react-lite";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Activity, ActivityFormValues } from "../../../app/models/activity";
+import { ActivityFormValues } from "../../../app/models/activity";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import { Formik, Form } from "formik";
 import * as Yup from 'yup';

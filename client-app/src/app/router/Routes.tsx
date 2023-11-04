@@ -28,6 +28,7 @@ export const routes: RouteObject[] = [
             {path:'server-error', element:<ErrorServer />},
             {path:'*', element:<Navigate replace to='not-found' />}
         ]
+        
     }
 ]
 
